@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Photo Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #FFC0CB;
+            font-family: 'Press Start 2P', cursive;
+            text-align: center;
+            color: hotpink;
+            overflow: hidden;
+            position: relative;
+        }
+        .container {
+            text-align: center;
+            color: white;
+            font-family: 'Arial', sans-serif;
+        }
+        #gallery {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .photo {
+            width: 250px;
+            height: 300px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: red;
+            clip-path: polygon(50% 0%, 100% 35%, 85% 100%, 50% 80%, 15% 100%, 0% 35%);
+            animation: float 5s infinite ease-in-out;
+        }
+        .rose {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background: url('rose.png') no-repeat center center/contain;
+            animation: fall 5s infinite ease-in-out;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh); opacity: 1; }
+            100% { transform: translateY(-10vh); opacity: 0; }
+        }
+        @keyframes fall {
+            0% { transform: translateY(-10vh); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+        .title {
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: hotpink;
+        }
+        .caption {
+            font-size: 18px;
+            font-weight: bold;
+            color: hotpink;
+            margin-top: 15px;
+        }
+        .back-button {
+            background-color: hotpink;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        .back-button:hover {
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">OUR SPECIAL MEMORY 💖</h1>
+        <div id="gallery">
+            <img src="Photos/1.jpeg" class="photo" alt="Photo 1">
+            <img src="Photos/2.jpeg" class="photo" alt="Photo 2">
+            <img src="Photos/3.jpeg" class="photo" alt="Photo 3">
+        </div>
+        
+        <p class="caption">No matter the miles, our love stays strong ❤️</p>
+
+        <!-- Go Back Button -->
+        <button class="back-button" onclick="window.history.back()">Go Back</button>
+    </div>
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
+        }
+        function createRose() {
+            const rose = document.createElement('div');
+            rose.classList.add('rose');
+            rose.style.left = Math.random() * 100 + 'vw';
+            rose.style.animationDuration = Math.random() * 2 + 3 + 's';
+            document.body.appendChild(rose);
+            setTimeout(() => rose.remove(), 5000);
+        }
+        setInterval(createHeart, 500);
+        setInterval(createRose, 1000);
+    </script>
+</body>
+</html>
