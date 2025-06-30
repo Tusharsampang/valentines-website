@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    background-color: #FFC0CB;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    color: hotpink;
+    overflow: hidden;
+    position: relative;
+}
+
+.heart-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    font-size: 30px;
+    animation: floatHearts 5s infinite ease-in-out;
+}
+
+@keyframes floatHearts {
+    0% { transform: translateY(100vh) scale(1); opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+}
+
+.game-container {
+    margin-top: 50px;
+    position: relative;
+    z-index: 10;
+}
+
+.button {
+    background: pink;
+    color: white;
+    border: 3px solid hotpink;
+    padding: 15px 30px;
+    font-size: 20px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Button Styles */
+.image-button {
+    width: 120px;
+    height: auto;
+    cursor: pointer;
+    margin: 20px;
+    transition: transform 0.2s ease-in-out;
+    background-color: pink;
+    color: white;
+    border: 3px solid hotpink;
+    border-radius: 5px;
+    padding: 15px 30px;
+    text-align: center;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.image-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+#screen1 .image-button {
+    background-color: pink;
+    color: white;
+    border: 3px solid hotpink;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#screen1 .image-button:hover {
+    background-color: hotpink;
+    border-color: darkred;
+    color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.image-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.photo-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-label {
+    font-size: 18px;
+    color: hotpink;
+    margin-bottom: 10px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.hidden {
+    display: none;
+}
+
+.no-button {
+    position: absolute;
+}
+
+/* Cat Containers */
+.cat-container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    z-index: 5;
+}
+
+.cat {
+    width: 300px;
+    animation: float 3s infinite ease-in-out;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+/* === Responsive Styles === */
+
+/* Medium devices (tablets) */
+@media (max-width: 1024px) {
+    .cat {
+        width: 200px;
+    }
+
+    .image-button {
+        width: 100px;
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+
+    .button {
+        font-size: 18px;
+        padding: 12px 24px;
+    }
+
+    .image-grid {
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+}
+
+/* Small devices (phones) */
+@media (max-width: 600px) {
+    body {
+        font-size: 12px;
+        overflow-x: hidden;
+    }
+
+    h1 {
+        font-size: 16px;
+        line-height: 1.4;
+        padding: 0 10px;
+    }
+
+    .game-container {
+        margin-top: 20px;
+        padding: 0 10px;
+    }
+
+    .button {
+        width: 90%;
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .image-button {
+        width: 80px;
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .image-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .cat {
+        width: 100px;
+    }
+
+    .image-label {
+        font-size: 14px;
+    }
+
+    .no-button {
+        font-size: 12px;
+    }
+}

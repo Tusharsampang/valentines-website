@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helina 💖🎀</title>
+    <link rel="stylesheet" href="gg.css">
+    <script src="script.js" defer></script>
+
+
+
+  
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="heart-background" id="heartBackground"></div>
+    <div class="game-container" id="screen1">
+        <h1>WILL YOU BE MY VALENTINE?🌹</h1>
+        <button class="button" onclick="nextScreen()">YES :)</button>
+        <button class="button no-button" id="noButton" onmouseover="moveButton()">NO :(</button>
+    </div>
+    <div class="game-container hidden" id="screen2">
+        <h1>Yayy!!I'M SO GLAD YOU SAID YES!🥹</h1>
+        <p class="lable">I've have a surprise for you My Love ❤️</p>
+        <button class="button" onclick="nextScreen3()">Open the Surprise</button>
+    </div>
+    <div class="game-container hidden" id="screen3">
+        <h1>CHOOSE YOUR SURPRISE! ❤️</h1>
+    
+        <div class="image-grid">
+           
+            <div class="image-container">
+                <p class="image-label">Photos</p>
+                <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDRrZ2FydGFtdXB0ZTR4MG5wczZubGdjdDgzb250ZWxpd3M0aDJoZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RkX0HwFFBNePHU5Jcb/giphy.gif"  
+                    alt="Photos" class="image-button" id="photoButton" onclick="window.location.href='photos.html'">
+            </div>
+            
+            
+            <div class="image-container">
+                <p class="image-label">Mailbox</p>
+                <img src="mailbox.jpg" alt="Mailbox" class="image-button" id="mailboxButton" onclick="window.location.href='mailbox.html'">
+            </div>
+    
+            <div class="image-container">
+                <p class="image-label">Special Note</p>
+                <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2JmbnowMWhicHFkY3NwZmpsZW9hbjNkbWNtY2NnamtxM3FrYXl3ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/EG9h7tGmRKG7O9XoNN/giphy.gif" 
+                    alt="Special Note" class="image-button" id="dateButton">
+            </div>
+        </div>
+    </div>
+    
+
+
+    <div class="game-container hidden" id="screenDate">
+        <h1>🌹 A Special Note for My Special Girlfriend🌹</h1>
+        <p>I can’t even begin to describe how special you’ve made me feel today😭. The flowers you sent were the sweetest surprise, and it’s my first time ever receiving them I honestly don’t have words for how happy they made me😭😭. I’m so lucky to have you in my life🫂. Even though we’re miles apart, your love is always right here with me🫀🫂. I created this little website just for you, to remind you how much you mean to me. Happy Valentine’s Day baby💖🎀. I can’t wait for the day we can be together, but until then, know that I’m sending all my love to you🌹❤️🥂</p>
+        <button class="button backButton">Back</button>
+    </div>
+
+    
+    
+
+    <div class="cat-container">
+        <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnEzZHMxY2VmcGx6cnVybmZnazI3dG1ybWozMnV2c2owM2k5enl1cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/e1Tf1eOo6976zuGv3C/giphy.gif" class="cat">
+        <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdXI1OXFuNnFsNWE1MHQzcTdvejcxenVoeGlxY3N0Y3d4M3QzN2FvNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/OsmezQ1Qz9MGaTj9bq/giphy.gif" class="cat">
+        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3QyeXF6bDNiZXNoYnFlMHJoMmt5NjR3ZGx0cmNlMW9sNmd5YXdoNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/rT7WPCciy8oETxLmUV/giphy.gif" class="cat">
+    </div>
+    <script>
+        function nextScreen() {
+            document.getElementById('screen1').classList.add('hidden');
+            document.getElementById('screen2').classList.remove('hidden');
+        }
+        function nextScreen3() {
+            document.getElementById('screen2').classList.add('hidden');
+            document.getElementById('screen3').classList.remove('hidden');
+        }
+        function moveButton() {
+            let button = document.getElementById('noButton');
+            let x = Math.random() * (window.innerWidth - 200);
+            let y = Math.random() * (window.innerHeight - 300);
+            button.style.left = x + 'px';
+            button.style.top = y + 'px';
+        }
+        function createHearts() {
+            let heartBackground = document.getElementById('heartBackground');
+            for (let i = 0; i < 30; i++) {
+                let heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+                heartBackground.appendChild(heart);
+            }
+        }
+        createHearts();
+    </script>
+</body>
+</html>
